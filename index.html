@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Selamat Idul Fitri</title>
+
+<style>
+body {
+    margin: 0;
+    overflow-x: hidden;
+    font-family: 'Arial';
+    background: radial-gradient(circle, #0f2027, #203a43, #2c5364);
+    color: white;
+    text-align: center;
+}
+
+/* Container biar rapi di HP */
+.container {
+    padding: 20px;
+}
+
+/* Teks utama */
+h1 {
+    margin-top: 40px;
+    font-size: 7vw;
+    animation: glow 2s infinite alternate;
+}
+
+/* Paragraf */
+p {
+    font-size: 4vw;
+}
+
+/* UCAPAN */
+.ucapan{
+    width: 90%;
+    margin: auto;
+    margin-top: 15px;
+    font-size: 4vw;
+    line-height: 1.6;
+}
+
+/* Glow */
+@keyframes glow {
+    from { text-shadow: 0 0 10px #fff; }
+    to { text-shadow: 0 0 25px #00ffcc; }
+}
+
+/* Tombol */
+button {
+    padding: 12px 20px;
+    font-size: 4vw;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(45deg, #00c9a7, #92fe9d);
+    color: black;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+/* Ketupat */
+.ketupat {
+    position: absolute;
+    width: 40px;
+    animation: fall linear infinite;
+    z-index: 0;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-100px) rotate(0deg); }
+    100% { transform: translateY(100vh) rotate(360deg); }
+}
+
+/* Kembang api */
+.firework {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    animation: explode 1s ease-out forwards;
+}
+
+@keyframes explode {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(15); opacity: 0; }
+}
+
+/* Masjid */
+.mosque {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* Desktop tetap bagus */
+@media (min-width: 768px) {
+    h1 { font-size: 45px; }
+    p, .ucapan { font-size: 18px; }
+    button { font-size: 18px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🌙 Selamat Idul Fitri 1447 H 🌙</h1>
+
+<div class="ucapan">
+<p>Taqabbalallahu minna wa minkum</p>
+
+<p>
+Di hari yang suci dan penuh berkah ini,
+kami sekeluarga mengucapkan
+<b>Mohon Maaf Lahir dan Batin</b>
+atas segala khilaf dan salah.
+</p>
+
+<p>
+Semoga kebahagiaan, kedamaian,
+dan keberkahan selalu menyertai kita semua.
+</p>
+
+<p>✨ Selamat merayakan hari kemenangan ✨</p>
+
+<p><b>Salam hangat dari</b></p>
+<p><b>Keluarga Besar Adelia Suci Nurangraini</b></p>
+</div>
+
+<button onclick="startAll()">🔊 Mulai Takbiran</button>
+
+</div>
+
+<audio id="audio" loop>
+    <source src="audio.mp3">
+</audio>
+
+<img class="mosque" src="mosque_PNG28.png">
+
+<script>
+// START semua efek
+function startAll() {
+    document.getElementById("audio").play();
+    startFireworks();
+}
+
+// Ketupat jatuh (lebih ringan untuk HP)
+for (let i = 0; i < 15; i++) {
+    let k = document.createElement("img");
+
+    k.src = "ketupat 2.png";
+    k.className = "ketupat";
+
+    k.style.left = Math.random() * window.innerWidth + "px";
+    k.style.animationDuration = (4 + Math.random() * 4) + "s";
+    k.style.width = (25 + Math.random() * 25) + "px";
+
+    document.body.appendChild(k);
+}
+
+// Kembang api
+function startFireworks() {
+    setInterval(() => {
+        let fw = document.createElement("div");
+        fw.className = "firework";
+
+        fw.style.left = Math.random() * window.innerWidth + "px";
+        fw.style.top = Math.random() * window.innerHeight + "px";
+
+        document.body.appendChild(fw);
+
+        setTimeout(() => fw.remove(), 1000);
+    }, 500);
+}
+</script>
+
+</body>
+</html>

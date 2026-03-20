@@ -1,0 +1,64 @@
+body {
+    margin: 0;
+    overflow-x: hidden;
+    font-family: Arial;
+    background: radial-gradient(circle, #0f2027, #203a43, #2c5364);
+    color: white;
+    text-align: center;
+}
+
+/* Container FIX */
+.container {
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    padding: 15px;
+}
+
+/* Judul */
+h1 {
+    font-size: clamp(24px, 6vw, 40px);
+    margin-top: 30px;
+}
+
+/* Paragraf */
+p {
+    font-size: clamp(14px, 4vw, 18px);
+}
+
+/* UCAPAN */
+.ucapan {
+    width: 100%;
+    margin-top: 15px;
+    line-height: 1.6;
+}
+
+/* Tombol */
+button {
+    padding: 12px 20px;
+    font-size: clamp(14px, 4vw, 18px);
+    border-radius: 12px;
+}
+
+/* Ketupat RESPONSIF */
+.ketupat {
+    position: fixed;
+    top: -50px;
+    width: clamp(20px, 6vw, 40px);
+    animation: fall linear infinite;
+}
+
+/* Animasi FIX (tidak pakai 100vh langsung) */
+@keyframes fall {
+    to {
+        transform: translateY(110dvh) rotate(360deg);
+    }
+}
+
+/* Masjid */
+.mosque {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    opacity: 0.3;
+}
